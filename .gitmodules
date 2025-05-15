@@ -1,0 +1,3 @@
+[submodule "formulaparser"]
+	path = formulaparser
+	url = git@github.com:zwim/formulaparser.git

@@ -76,7 +76,7 @@ local calc_popup = {
         "m",
         north = "M",
         northeast = "my",
-        east = "µ",
+        east = "μ",
     },
    _n_ = {
         "n",
