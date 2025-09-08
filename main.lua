@@ -26,6 +26,7 @@ end
 
 local CalculatorSettingsDialog = require("calculatorsettingsdialog")
 local CalculatorConvertDialog = require("calculatorconvertdialog")
+local CalculatorGraphDialog = require("calculatorgraphdialog")
 local Parser = require("formulaparser")
 
 local VERSION_FILE = DataStorage:getDataDir() .. "/plugins/calculator.koplugin/VERSION"
@@ -150,7 +151,7 @@ end
 function Calculator:generateInputDialog(status_line, hint)
     hint = _([[Enter your calculations and press '⮠'
 '♺' Convert, '⎚' Clear, '⇧' Load,
-'⇩' Store, '☰' Settings, '✕' Close
+'⇩' Store, '📈' Graph, '☰' Settings, '✕' Close
 or type 'help()⮠']]) .. (hint or "")
 
     return InputDialog:new{
@@ -224,6 +225,15 @@ or type 'help()⮠']]) .. (hint or "")
                         self:dump(nil, self.calculator_output_path)
                     end,
                 })
+            end,
+            },
+            {
+            text = "📈", -- graph
+            callback = function ()
+                self.graph_dialog = CalculatorGraphDialog:new{
+                    parent = self,
+                }
+                UIManager:show(self.graph_dialog)
             end,
             },
             {
