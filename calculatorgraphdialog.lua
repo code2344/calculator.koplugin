@@ -237,10 +237,16 @@ function CalculatorGraphDialog:drawGraph()
     
     -- Update graph area with text representation
     local graph_text = table.concat(graph_lines, "\n")
-    self.graph_area[1] = TextWidget:new{
-        text = graph_text,
-        face = Font:getFace("infont", 12),
-        para_direction_rtl = false,
+    self.graph_area[1] = CenterContainer:new{
+        dimen = Geom:new{
+            w = self.graph_width,
+            h = self.graph_height,
+        },
+        TextWidget:new{
+            text = graph_text,
+            face = Font:getFace("infont", 10),
+            para_direction_rtl = false,
+        }
     }
 end
 

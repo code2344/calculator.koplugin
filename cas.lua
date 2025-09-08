@@ -56,7 +56,7 @@ function CAS.derivative(expr, variable)
         return "cos(" .. var_str .. ")"
     end
     
-    -- d/dx(cos(x)) = -sin(x)
+    -- d/dx(cos(x)) = -sin(x)  
     if expr_str:match("cos%(" .. var_str .. "%)") then
         return "-sin(" .. var_str .. ")"
     end
